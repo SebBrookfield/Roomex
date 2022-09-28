@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roomex.Distance.Api", "Roomex.Distance.Api\Roomex.Distance.Api.csproj", "{22CB4D2C-5F3F-4A13-84F7-F132A6EB90D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomex.Distance.Api.Tests", "..\Roomex.Distance.Api.Tests\Roomex.Distance.Api.Tests.csproj", "{328BA9E0-7173-44A6-9ED5-6500128B27BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomex.Distance.Api.Tests", "Roomex.Distance.Api.Tests\Roomex.Distance.Api.Tests.csproj", "{328BA9E0-7173-44A6-9ED5-6500128B27BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
