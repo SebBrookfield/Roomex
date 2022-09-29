@@ -3,25 +3,25 @@ using Roomex.Distance.Api.Converters;
 
 namespace Roomex.Distance.Api.Tests.Calculators.MockBuilders;
 
-public class MockKmConverterBuilder
+public class MockMetreConverterBuilder
 {
-    private readonly Mock<IKmConverter> _mock;
+    private readonly Mock<IMetreConverter> _mock;
     private double _returnValue;
 
-    public MockKmConverterBuilder()
+    public MockMetreConverterBuilder()
     {
-        _mock = new Mock<IKmConverter>();
+        _mock = new Mock<IMetreConverter>();
         _mock.Setup(converter => converter.Convert(It.IsAny<double>()))
             .Returns(() => _returnValue);
     }
 
-    public MockKmConverterBuilder WithReturnValue(double returnValue)
+    public MockMetreConverterBuilder WithReturnValue(double returnValue)
     {
         _returnValue = returnValue;
         return this;
     }
 
-    public IKmConverter Build()
+    public IMetreConverter Build()
     {
         return _mock.Object;
     }

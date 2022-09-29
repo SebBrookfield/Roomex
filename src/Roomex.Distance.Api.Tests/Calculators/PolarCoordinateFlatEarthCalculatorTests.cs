@@ -10,9 +10,9 @@ public class PolarCoordinateFlatEarthCalculatorTests
     public static IEnumerable<object[]> Distances =>
         new List<object[]>
         {
-            new object[] { CoordinatesFor.Dublin, CoordinatesFor.Usa, 5874.34 },
-            new object[] { CoordinatesFor.Dublin, CoordinatesFor.France, 818.63 },
-            new object[] { CoordinatesFor.Usa, CoordinatesFor.France, 6689.78 },
+            new object[] { CoordinatesFor.Dublin, CoordinatesFor.Usa, 5874344.11d },
+            new object[] { CoordinatesFor.Dublin, CoordinatesFor.France, 818633.28d },
+            new object[] { CoordinatesFor.Usa, CoordinatesFor.France, 6689788.23d },
         };
 
     [Theory]
@@ -30,7 +30,7 @@ public class PolarCoordinateFlatEarthCalculatorTests
     {
         const double convertedValue = -1d;
         var calculator = new PolarCoordinateFlatEarthCalculator();
-        var mockKmBuilder = new MockKmConverterBuilder().WithReturnValue(convertedValue).Build();
+        var mockKmBuilder = new MockMetreConverterBuilder().WithReturnValue(convertedValue).Build();
         var distance = calculator.CalculateDistance(CoordinatesFor.Dublin, CoordinatesFor.Usa, mockKmBuilder);
         Assert.Equal(convertedValue, distance);
     }

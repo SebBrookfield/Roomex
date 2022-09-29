@@ -6,7 +6,7 @@ namespace Roomex.Distance.Api.Calculators;
 public interface ICoordinateDistanceCalculator
 {
     /// <summary>
-    /// Takes two co-ordinates and returns the distance in kilometers, unless a converter is used to change the units.
+    /// Takes two co-ordinates and returns the distance in metres, unless a converter is used to change the units.
     /// </summary>
-    double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IKmConverter? converter = null);
+    double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null);
 }

@@ -1,6 +1,6 @@
 ﻿namespace Roomex.Distance.Api.Converters;
 
-public interface IKmConverter
+public interface IMetreConverter
 {
-    double Convert(double km);
+    double Convert(double metres);
 }

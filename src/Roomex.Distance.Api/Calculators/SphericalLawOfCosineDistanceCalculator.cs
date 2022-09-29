@@ -6,9 +6,9 @@ namespace Roomex.Distance.Api.Calculators;
 
 public class SphericalLawOfCosineDistanceCalculator : ICoordinateDistanceCalculator
 {
-    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IKmConverter? converter = null)
+    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
     {
-        const double radius = 6371.00d;
+        const double radius = 6371008.7714d;
         var a = (90 - coordinateB.Latitude).ToRadians();
         var b = (90 - coordinateA.Latitude).ToRadians();
         var phi = (coordinateA.Longitude - coordinateB.Longitude).ToRadians();

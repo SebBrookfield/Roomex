@@ -10,9 +10,9 @@ public class SphericalLawOfCosineDistanceCalculatorTests
     public static IEnumerable<object[]> Distances =>
         new List<object[]>
         {
-            new object[] { CoordinatesFor.Dublin, CoordinatesFor.Usa, 5536.34 },
-            new object[] { CoordinatesFor.Dublin, CoordinatesFor.France, 780.33 },
-            new object[] { CoordinatesFor.Usa, CoordinatesFor.France, 6284 }
+            new object[] { CoordinatesFor.Dublin, CoordinatesFor.Usa, 5536346.3d },
+            new object[] { CoordinatesFor.Dublin, CoordinatesFor.France, 780326.68d },
+            new object[] { CoordinatesFor.Usa, CoordinatesFor.France, 6284005.75d }
         };
 
     [Theory]
@@ -29,7 +29,7 @@ public class SphericalLawOfCosineDistanceCalculatorTests
     {
         const double convertedValue = -1d;
         var calculator = new SphericalLawOfCosineDistanceCalculator();
-        var mockKmBuilder = new MockKmConverterBuilder().WithReturnValue(convertedValue).Build();
+        var mockKmBuilder = new MockMetreConverterBuilder().WithReturnValue(convertedValue).Build();
         var distance = calculator.CalculateDistance(CoordinatesFor.Dublin, CoordinatesFor.Usa, mockKmBuilder);
         Assert.Equal(convertedValue, distance);
     }
