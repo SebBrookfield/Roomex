@@ -1,6 +1,6 @@
 ﻿namespace Roomex.Distance.Api.Converters;
 
-public class KilometreConverter : IMetreConverter
+public class KilometreConverter : ILengthConverter
 {
     public double ConvertFromMetres(double metres)
     {

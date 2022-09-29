@@ -7,7 +7,7 @@ namespace Roomex.Distance.Api.Calculators;
 
 public class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
 {
-    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
+    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, ILengthConverter? converter = null)
     {
         const double semiMajorAxis = 6378137.0000d;
         const double semiMinorAxis = 6356752.3142d;

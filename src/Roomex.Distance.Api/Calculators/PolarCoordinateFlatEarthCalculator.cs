@@ -6,7 +6,7 @@ namespace Roomex.Distance.Api.Calculators;
 
 public class PolarCoordinateFlatEarthCalculator : ICoordinateDistanceCalculator
 {
-    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
+    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, ILengthConverter? converter = null)
     {
         const double radius = 6371008.7714d;
         var a = (90 - coordinateB.Latitude).ToRadians();

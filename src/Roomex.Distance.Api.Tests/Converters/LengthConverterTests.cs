@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Roomex.Distance.Api.Tests.Converters;
 
-public class Conve0rterTests
+public class LengthConverterTests
 {
     private const double Metres = 5551000;
 
@@ -17,7 +17,7 @@ public class Conve0rterTests
 
     [Theory]
     [MemberData(nameof(Conversions))]
-    public void ConvertsConvertCorrectly(double expected, IMetreConverter converter)
+    public void ConvertsConvertCorrectly(double expected, ILengthConverter converter)
     {
         Assert.Equal(expected, converter.ConvertFromMetres(Metres), 4);
     }
