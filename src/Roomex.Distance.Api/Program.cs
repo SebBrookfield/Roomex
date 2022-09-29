@@ -1,3 +1,6 @@
+using Roomex.Distance.Calculator.Factories;
+using Roomex.Distance.Calculator.Services;
+
 namespace Roomex.Distance.Api
 {
     public class Program
@@ -15,6 +18,9 @@ namespace Roomex.Distance.Api
         private static void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<IDistanceCalculatorFactory, DistanceCalculatorFactory>();
+            services.AddSingleton<ILengthConverterFactory, LengthConverterFactory>();
+            services.AddSingleton<IDistanceCalculatorService, DistanceCalculatorService>();
         }
     }
 }

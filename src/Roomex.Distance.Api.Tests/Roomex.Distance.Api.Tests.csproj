@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,5 +15,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Roomex.Distance.Api\Roomex.Distance.Api.csproj" />
   </ItemGroup>
-  
+
 </Project>
