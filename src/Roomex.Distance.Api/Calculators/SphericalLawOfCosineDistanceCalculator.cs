@@ -6,7 +6,7 @@ namespace Roomex.Distance.Api.Calculators;
 
 public class SphericalLawOfCosineDistanceCalculator : ICoordinateDistanceCalculator
 {
-    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, ILengthConverter? converter = null)
+    public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
     {
         const double radius = 6371008.7714d;
         var a = (90 - coordinateB.Latitude).ToRadians();

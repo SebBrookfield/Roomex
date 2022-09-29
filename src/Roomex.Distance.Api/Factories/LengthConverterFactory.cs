@@ -5,18 +5,18 @@ namespace Roomex.Distance.Api.Factories;
 
 public interface ILengthConverterFactory
 {
-    IMetreConverter GetMetreConverter(LengthConverters length);
+    IMetreConverter GetMetreConverter(Lengths length);
 }
 
 public class LengthConverterFactory : ILengthConverterFactory
 {
-    public IMetreConverter GetMetreConverter(LengthConverters length)
+    public IMetreConverter GetMetreConverter(Lengths length)
     {
         return length switch
         {
-            LengthConverters.Kilometres => new KilometreConverter(),
-            LengthConverters.Miles => new MilesConverter(),
-            LengthConverters.Parsecs => new ParsecConverter(),
+            Lengths.Kilometres => new KilometreConverter(),
+            Lengths.Miles => new MilesConverter(),
+            Lengths.Parsecs => new ParsecConverter(),
             _ => throw new ArgumentOutOfRangeException(nameof(length), length, null)
         };
     }

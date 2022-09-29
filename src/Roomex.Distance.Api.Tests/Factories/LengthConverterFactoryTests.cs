@@ -10,14 +10,14 @@ public class LengthConverterFactoryTests
     public static IEnumerable<object[]> Factories =>
         new List<object[]>
         {
-            new object[] {LengthConverters.Kilometres, typeof(KilometreConverter)},
-            new object[] {LengthConverters.Miles, typeof(MilesConverter)},
-            new object[] {LengthConverters.Parsecs, typeof(ParsecConverter)}
+            new object[] {Lengths.Kilometres, typeof(KilometreConverter)},
+            new object[] {Lengths.Miles, typeof(MilesConverter)},
+            new object[] {Lengths.Parsecs, typeof(ParsecConverter)}
         };
 
     [Theory]
     [MemberData(nameof(Factories))]
-    public void FactoryReturnsCorrectType(LengthConverters converter, Type expectedType)
+    public void FactoryReturnsCorrectType(Lengths converter, Type expectedType)
     {
         var factory = new LengthConverterFactory();
         var metreConverter = factory.GetMetreConverter(converter);
@@ -28,6 +28,6 @@ public class LengthConverterFactoryTests
     public void FactoryThrowsArgumentExceptionIfEnumIsOutOfRange()
     {
         var factory = new LengthConverterFactory();
-        Assert.Throws<ArgumentOutOfRangeException>(() => factory.GetMetreConverter((LengthConverters) int.MaxValue));
+        Assert.Throws<ArgumentOutOfRangeException>(() => factory.GetMetreConverter((Lengths) int.MaxValue));
     }
 }
