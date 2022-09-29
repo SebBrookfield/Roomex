@@ -1,9 +1,9 @@
-﻿using Roomex.Distance.Api.Converters;
-using Roomex.Distance.Api.ExtensionMethods;
-using Roomex.Distance.Api.Models;
+﻿using Roomex.Distance.Calculator.Converters;
+using Roomex.Distance.Calculator.ExtensionMethods;
+using Roomex.Distance.Calculator.Models;
 using static System.Math;
 
-namespace Roomex.Distance.Api.Calculators;
+namespace Roomex.Distance.Calculator.Calculators;
 
 public class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
 {

@@ -1,7 +1,7 @@
-﻿using Roomex.Distance.Api.Converters;
-using Roomex.Distance.Api.Enums;
+﻿using Roomex.Distance.Calculator.Converters;
+using Roomex.Distance.Calculator.Enums;
 
-namespace Roomex.Distance.Api.Factories;
+namespace Roomex.Distance.Calculator.Factories;
 
 public interface ILengthConverterFactory
 {

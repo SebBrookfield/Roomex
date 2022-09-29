@@ -1,5 +1,5 @@
 ﻿using Moq;
-using Roomex.Distance.Api.Converters;
+using Roomex.Distance.Calculator.Converters;
 
 namespace Roomex.Distance.Api.Tests.MockBuilders;
 

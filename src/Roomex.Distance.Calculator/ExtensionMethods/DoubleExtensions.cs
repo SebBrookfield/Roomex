@@ -1,4 +1,4 @@
-﻿namespace Roomex.Distance.Api.ExtensionMethods;
+﻿namespace Roomex.Distance.Calculator.ExtensionMethods;
 
 public static class DoubleExtensions
 {

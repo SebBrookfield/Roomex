@@ -1,4 +1,4 @@
-﻿using Roomex.Distance.Api.Models;
+﻿using Roomex.Distance.Calculator.Models;
 
 namespace Roomex.Distance.Api.Tests;
 

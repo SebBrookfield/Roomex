@@ -1,4 +1,4 @@
-﻿namespace Roomex.Distance.Api.Converters;
+﻿namespace Roomex.Distance.Calculator.Converters;
 
 public interface ILengthConverter : IMetreConverter
 {

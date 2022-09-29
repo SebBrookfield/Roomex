@@ -1,4 +1,4 @@
-﻿namespace Roomex.Distance.Api.Enums;
+﻿namespace Roomex.Distance.Calculator.Enums;
 
 public enum DistanceCalculators
 {

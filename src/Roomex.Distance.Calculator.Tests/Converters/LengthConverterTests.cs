@@ -1,4 +1,4 @@
-﻿using Roomex.Distance.Api.Converters;
+﻿using Roomex.Distance.Calculator.Converters;
 using Xunit;
 
 namespace Roomex.Distance.Api.Tests.Converters;

@@ -1,6 +1,6 @@
-﻿using Roomex.Distance.Api.Calculators;
-using Roomex.Distance.Api.Enums;
-using Roomex.Distance.Api.Factories;
+﻿using Roomex.Distance.Calculator.Calculators;
+using Roomex.Distance.Calculator.Enums;
+using Roomex.Distance.Calculator.Factories;
 using Xunit;
 
 namespace Roomex.Distance.Api.Tests.Factories;

@@ -1,8 +1,8 @@
-﻿using Roomex.Distance.Api.Enums;
-using Roomex.Distance.Api.Factories;
-using Roomex.Distance.Api.Models;
+﻿using Roomex.Distance.Calculator.Enums;
+using Roomex.Distance.Calculator.Factories;
+using Roomex.Distance.Calculator.Models;
 
-namespace Roomex.Distance.Api.Services;
+namespace Roomex.Distance.Calculator.Services;
 
 public interface IDistanceCalculatorService
 {

@@ -1,4 +1,4 @@
-﻿namespace Roomex.Distance.Api.Models;
+﻿namespace Roomex.Distance.Calculator.Models;
 
 public class DecimalDegreeCoordinate
 {
