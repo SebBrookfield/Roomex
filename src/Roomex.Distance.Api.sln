@@ -5,7 +5,11 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roomex.Distance.Calculator", "Roomex.Distance.Calculator\Roomex.Distance.Calculator.csproj", "{22CB4D2C-5F3F-4A13-84F7-F132A6EB90D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomex.Distance.Calculator.Tests", "Roomex.Distance.Calculator.Tests\Roomex.Distance.Calculator.Tests.csproj", "{328BA9E0-7173-44A6-9ED5-6500128B27BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roomex.Distance.Calculator.Tests", "Roomex.Distance.Calculator.Tests\Roomex.Distance.Calculator.Tests.csproj", "{328BA9E0-7173-44A6-9ED5-6500128B27BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomex.Distance.Api", "Roomex.Distance.Api\Roomex.Distance.Api.csproj", "{DC542FCD-9EC6-4494-95B4-A7F1912B6961}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roomex.Distance.Api.Tests", "Roomex.Distance.Api.Tests\Roomex.Distance.Api.Tests.csproj", "{FD1DF015-B687-4337-A0B6-24F105FFB896}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{328BA9E0-7173-44A6-9ED5-6500128B27BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328BA9E0-7173-44A6-9ED5-6500128B27BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328BA9E0-7173-44A6-9ED5-6500128B27BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC542FCD-9EC6-4494-95B4-A7F1912B6961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC542FCD-9EC6-4494-95B4-A7F1912B6961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC542FCD-9EC6-4494-95B4-A7F1912B6961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC542FCD-9EC6-4494-95B4-A7F1912B6961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1DF015-B687-4337-A0B6-24F105FFB896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1DF015-B687-4337-A0B6-24F105FFB896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1DF015-B687-4337-A0B6-24F105FFB896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1DF015-B687-4337-A0B6-24F105FFB896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
