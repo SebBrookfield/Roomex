@@ -1,6 +1,6 @@
 ﻿using Roomex.Distance.Api.Models;
 
-namespace Roomex.Distance.Api.Tests.Calculators;
+namespace Roomex.Distance.Api.Tests;
 
 public static class CoordinatesFor
 {
