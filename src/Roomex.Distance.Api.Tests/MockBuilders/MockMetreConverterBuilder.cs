@@ -1,17 +1,15 @@
 ﻿using Moq;
 using Roomex.Distance.Api.Converters;
 
-namespace Roomex.Distance.Api.Tests.Calculators.MockBuilders;
+namespace Roomex.Distance.Api.Tests.MockBuilders;
 
-public class MockMetreConverterBuilder
+public class MockMetreConverterBuilder : BaseMockBuilder<ILengthConverter>
 {
-    private readonly Mock<ILengthConverter> _mock;
     private double _returnValue;
 
     public MockMetreConverterBuilder()
     {
-        _mock = new Mock<ILengthConverter>();
-        _mock.Setup(converter => converter.ConvertFromMetres(It.IsAny<double>()))
+        Mock.Setup(converter => converter.ConvertFromMetres(It.IsAny<double>()))
             .Returns(() => _returnValue);
     }
 
@@ -19,10 +17,5 @@ public class MockMetreConverterBuilder
     {
         _returnValue = returnValue;
         return this;
-    }
-
-    public ILengthConverter Build()
-    {
-        return _mock.Object;
     }
 }

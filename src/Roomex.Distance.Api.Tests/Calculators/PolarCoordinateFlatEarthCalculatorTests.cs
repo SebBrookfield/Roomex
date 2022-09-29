@@ -1,6 +1,6 @@
 ﻿using Roomex.Distance.Api.Calculators;
 using Roomex.Distance.Api.Models;
-using Roomex.Distance.Api.Tests.Calculators.MockBuilders;
+using Roomex.Distance.Api.Tests.MockBuilders;
 using Xunit;
 
 namespace Roomex.Distance.Api.Tests.Calculators;
