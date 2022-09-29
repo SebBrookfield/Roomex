@@ -1,6 +1,6 @@
 ﻿namespace Roomex.Distance.Api.Enums;
 
-public enum LengthConverters
+public enum Lengths
 {
     Kilometres,
     Miles,
