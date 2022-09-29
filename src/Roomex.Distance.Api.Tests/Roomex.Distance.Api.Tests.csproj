@@ -14,11 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Converters\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Roomex.Distance.Api\Roomex.Distance.Api.csproj" />
   </ItemGroup>
 
