@@ -24,7 +24,6 @@ public class PolarCoordinateFlatEarthCalculatorTests
         Assert.Equal(expectedDistance, distance, 2);
     }
 
-
     [Fact]
     public void CalculateDistanceConvertsTheDistanceIfAConverterIsProvided()
     {
