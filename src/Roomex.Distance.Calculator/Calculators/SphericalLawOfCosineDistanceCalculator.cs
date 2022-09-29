@@ -4,7 +4,7 @@ using Roomex.Distance.Calculator.Models;
 
 namespace Roomex.Distance.Calculator.Calculators;
 
-public class SphericalLawOfCosineDistanceCalculator : ICoordinateDistanceCalculator
+internal class SphericalLawOfCosineDistanceCalculator : ICoordinateDistanceCalculator
 {
     public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
     {

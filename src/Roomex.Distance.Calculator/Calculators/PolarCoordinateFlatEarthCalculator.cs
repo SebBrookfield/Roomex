@@ -4,7 +4,7 @@ using Roomex.Distance.Calculator.Models;
 
 namespace Roomex.Distance.Calculator.Calculators;
 
-public class PolarCoordinateFlatEarthCalculator : ICoordinateDistanceCalculator
+internal class PolarCoordinateFlatEarthCalculator : ICoordinateDistanceCalculator
 {
     public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
     {

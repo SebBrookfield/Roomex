@@ -1,6 +1,6 @@
 ﻿namespace Roomex.Distance.Calculator.Converters;
 
-public class ParsecConverter : ILengthConverter
+internal class ParsecConverter : ILengthConverter
 {
     public double ConvertFromMetres(double metres)
     {

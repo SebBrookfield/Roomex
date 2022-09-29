@@ -5,7 +5,7 @@ using static System.Math;
 
 namespace Roomex.Distance.Calculator.Calculators;
 
-public class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
+internal class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
 {
     public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
     {
