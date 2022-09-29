@@ -40,7 +40,7 @@ public class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
         var b = uSquared / 1024 * ( 256 + uSquared * (-128 + uSquared * (74 - 47 * uSquared)));
         var Δσ = b * sinσ * (cos2σm + b / 4 * (cosσ * (-1 + 2 * (cos2σm * cos2σm)) - b / 6 * cos2σm * (-3 + 4 * (sinα * sinα)) * (-3 + 4 * (cos2σm * cos2σm))));
         var distance = semiMinorAxis * a * (σ-Δσ);
-        return converter?.Convert(distance) ?? distance;
+        return converter?.ConvertFromMetres(distance) ?? distance;
     }
 
     private static double PowOf2(double d) => Pow(d, 2);

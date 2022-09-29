@@ -14,6 +14,6 @@ public class SphericalLawOfCosineDistanceCalculator : ICoordinateDistanceCalcula
         var phi = (coordinateA.Longitude - coordinateB.Longitude).ToRadians();
         var cosP = Math.Cos(a) * Math.Cos(b) + Math.Sin(a) * Math.Sin(b) * Math.Cos(phi);
         var distance = Math.Acos(cosP) * radius;
-        return converter?.Convert(distance) ?? distance;
+        return converter?.ConvertFromMetres(distance) ?? distance;
     }
 }

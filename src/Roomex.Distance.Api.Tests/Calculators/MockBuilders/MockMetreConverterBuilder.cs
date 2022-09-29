@@ -11,7 +11,7 @@ public class MockMetreConverterBuilder
     public MockMetreConverterBuilder()
     {
         _mock = new Mock<IMetreConverter>();
-        _mock.Setup(converter => converter.Convert(It.IsAny<double>()))
+        _mock.Setup(converter => converter.ConvertFromMetres(It.IsAny<double>()))
             .Returns(() => _returnValue);
     }
 

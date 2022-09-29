@@ -2,5 +2,5 @@
 
 public interface IMetreConverter
 {
-    double Convert(double metres);
+    double ConvertFromMetres(double metres);
 }

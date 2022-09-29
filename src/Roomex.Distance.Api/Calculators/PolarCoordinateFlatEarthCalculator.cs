@@ -14,6 +14,6 @@ public class PolarCoordinateFlatEarthCalculator : ICoordinateDistanceCalculator
         var phi = (coordinateA.Longitude - coordinateB.Longitude).ToRadians();
         var fe = Math.Pow(a, 2) + Math.Pow(b, 2) - 2 * a * b * Math.Cos(phi);
         var distance = radius * Math.Sqrt(fe);
-        return converter?.Convert(distance) ?? distance;
+        return converter?.ConvertFromMetres(distance) ?? distance;
     }
 }
