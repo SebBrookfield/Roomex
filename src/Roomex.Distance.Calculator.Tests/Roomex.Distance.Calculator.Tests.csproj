@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Roomex.Distance.Api\Roomex.Distance.Api.csproj" />
+    <ProjectReference Include="..\Roomex.Distance.Calculator\Roomex.Distance.Calculator.csproj" />
   </ItemGroup>
 
 </Project>
