@@ -1,6 +1,6 @@
 ﻿using Moq;
 
-namespace Roomex.Distance.Api.Tests;
+namespace Roomex.Distance.Api.Tests.MockBuilders;
 
 public class BaseMockBuilder<T> where T : class
 {
@@ -13,6 +13,12 @@ public class BaseMockBuilder<T> where T : class
 
     public virtual T Build()
     {
+        return Mock.Object;
+    }
+
+    public virtual T Build(out Mock<T> mock)
+    {
+        mock = Mock;
         return Mock.Object;
     }
 }
