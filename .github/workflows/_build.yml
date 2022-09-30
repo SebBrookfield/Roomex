@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Build
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+
+      - name: Unit tests
+        run: |
+          dotnet test ./Roomex.Distance.Api.Tests -v quiet --nologo -l:"console;verbosity=normal"
+          dotnet test ./Roomex.Distance.Calculator.Tests -v quiet --nologo -l:"console;verbosity=normal"
+
+      - name: Integration tests
+        run: dotnet test ./Roomex.Distance.Api.IntegrationTests -v quiet --nologo -l:"console;verbosity=normal"
+
+      - name: Publish code
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/roomex
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/roomex

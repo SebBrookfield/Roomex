@@ -13,86 +13,12 @@ permissions:
 
 jobs:
   build:
-    name: Build
-    defaults:
-      run:
-        working-directory: src
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '6.0.x'
-
-      - name: Build
-        run: |
-          dotnet restore
-          dotnet build --configuration Release
-
-      - name: Unit tests
-        run: |
-          dotnet test ./Roomex.Distance.Api.Tests -v quiet --nologo -l:"console;verbosity=normal"
-          dotnet test ./Roomex.Distance.Calculator.Tests -v quiet --nologo -l:"console;verbosity=normal"
-
-      - name: Integration tests
-        run: dotnet test ./Roomex.Distance.Api.IntegrationTests -v quiet --nologo -l:"console;verbosity=normal"
-
-      - name: Publish code
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/roomex
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/roomex
+    uses: ./.github/workflows/_build.yml
 
   terraform:
-    name: Deploy Azure
-    runs-on: ubuntu-latest
-    needs: build
-    defaults:
-      run:
-        working-directory: terraform
-    env:
-      TF_VAR_AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
-
-      - name: Init
-        run: terraform init
-
-      - name: Apply
-        run: terraform apply -auto-approve -input=false
+    uses: ./.github/workflows/_terraform.yml
+    secrets: inherit
 
   deploy:
-    name: 'Deploy code'
-    runs-on: ubuntu-latest
-    needs: terraform
-
-    steps:
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: .net-app
-          path: roomex
-
-
-      - name: Deploy
-        uses: azure/webapps-deploy@v2
-        with: 
-          app-name: roomex-api
-          package: ./roomex
-      
-      - name: Logout
-        run: az logout
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit

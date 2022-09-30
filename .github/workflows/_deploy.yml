@@ -1,0 +1,29 @@
+name: 'Deploy code'
+
+on:
+  workflow_call:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    needs: terraform
+    steps:
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: .net-app
+          path: roomex
+
+
+      - name: Deploy
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: roomex-api
+          package: ./roomex
+      
+      - name: Logout
+        run: az logout
