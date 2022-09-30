@@ -1,10 +1,9 @@
-name: Deploy Azure
-
 on:
   workflow_call:
 
 jobs:
   terraform:
+    name: Deploy Azure
     runs-on: ubuntu-latest
     defaults:
       run:
