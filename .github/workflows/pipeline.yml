@@ -18,7 +18,9 @@ jobs:
   terraform:
     uses: ./.github/workflows/_terraform.yml
     secrets: inherit
+    needs: build
 
   deploy:
     uses: ./.github/workflows/_deploy.yml
     secrets: inherit
+    needs: terraform
