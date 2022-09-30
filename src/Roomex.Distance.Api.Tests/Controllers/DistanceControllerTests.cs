@@ -59,12 +59,12 @@ public class DistanceControllerTests
         var request = new CalculateDistanceRequest
         {
             CalculationMethod = DistanceCalculators.VincentyInverse,
-            OutputLength = Lengths.Miles
+            UnitOutput = Lengths.Miles
         };
         
         controller.Calculate(request);
 
-        mock.Verify(s => s.CalculateDistance(It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DecimalDegreeCoordinate>(), request.CalculationMethod.Value, request.OutputLength.Value));
+        mock.Verify(s => s.CalculateDistance(It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DecimalDegreeCoordinate>(), request.CalculationMethod.Value, request.UnitOutput.Value));
     }
 
     [Fact]

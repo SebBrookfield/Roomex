@@ -20,7 +20,7 @@ namespace Roomex.Distance.Api.Controllers
         public double Calculate(CalculateDistanceRequest request)
         {
             return _distanceCalculatorService.CalculateDistance(request.CoordinateA, request.CoordinateB,
-                request.CalculationMethod ?? DistanceCalculators.SphericalLawOfCosine, request.OutputLength ?? Lengths.Kilometres);
+                request.CalculationMethod ?? DistanceCalculators.SphericalLawOfCosine, request.UnitOutput ?? Lengths.Kilometres);
         }
     }
 }

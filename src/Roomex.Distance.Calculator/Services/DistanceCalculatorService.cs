@@ -10,7 +10,7 @@ public interface IDistanceCalculatorService
     /// Calculates the distance between two points using the specified calculation method, and returns the distance in metres unless specified.
     /// </summary>
     double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB,
-        DistanceCalculators calculationMethod, Lengths? lengthOutput = null);
+        DistanceCalculators calculationMethod, Lengths? unitOutput = null);
 }
 
 public class DistanceCalculatorService : IDistanceCalculatorService
@@ -25,11 +25,11 @@ public class DistanceCalculatorService : IDistanceCalculatorService
     }
 
     public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB,
-        DistanceCalculators calculationMethod, Lengths? lengthOutput = null)
+        DistanceCalculators calculationMethod, Lengths? unitOutput = null)
     {
-        var lengthConverter = lengthOutput == null
+        var lengthConverter = unitOutput == null
             ? null 
-            : _lengthConverterFactory.GetMetreConverter(lengthOutput.Value);
+            : _lengthConverterFactory.GetMetreConverter(unitOutput.Value);
 
         return _distanceCalculatorFactory
             .GetDistanceCalculator(calculationMethod)

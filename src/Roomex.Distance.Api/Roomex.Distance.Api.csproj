@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="Roomex.Distance.Api.IntegrationTests" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Roomex.Distance.Calculator\Roomex.Distance.Calculator.csproj" />
   </ItemGroup>
 
