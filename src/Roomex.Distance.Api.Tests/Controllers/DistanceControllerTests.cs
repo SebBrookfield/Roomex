@@ -4,6 +4,7 @@ using Roomex.Distance.Api.Models;
 using Roomex.Distance.Api.Tests.MockBuilders;
 using Roomex.Distance.Calculator.Enums;
 using Roomex.Distance.Calculator.Models;
+using Roomex.Distance.Calculator.Services;
 using Xunit;
 
 namespace Roomex.Distance.Api.Tests.Controllers;
@@ -13,8 +14,8 @@ public class DistanceControllerTests
     [Fact]
     public void DistanceControllerDoesNotThrow()
     {
-        var distanceCalculatorSerivce = new MockDistanceCalculatorService().Build();
-        Assert.Null(Record.Exception(() => new DistanceController(distanceCalculatorSerivce)));
+        var distanceCalculatorService = new MockDistanceCalculatorService().Build();
+        Assert.Null(Record.Exception(() => new DistanceController(distanceCalculatorService)));
     }
 
     [Fact]
@@ -22,9 +23,7 @@ public class DistanceControllerTests
     {
         const double expectedDistance = 123d;
         var distanceCalculatorService = new MockDistanceCalculatorService().WithDistance(expectedDistance).Build();
-        var controller = new DistanceController(distanceCalculatorService);
-
-        var distance = controller.Calculate(new CalculateDistanceRequest());
+        var distance = CalculateDistance(distanceCalculatorService);
 
         Assert.Equal(expectedDistance, distance);
     }
@@ -33,31 +32,29 @@ public class DistanceControllerTests
     public void CalculateDefaultsToSphericalLawOfCosineIfNoCalculationMethodSpecified()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
-        var controller = new DistanceController(distanceCalculatorService);
-
-        controller.Calculate(new CalculateDistanceRequest());
-
+        var distance = CalculateDistance(distanceCalculatorService);
+        
         mock.Verify(s => s.CalculateDistance(It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DecimalDegreeCoordinate>(), DistanceCalculators.SphericalLawOfCosine, It.IsAny<Lengths?>()));
     }
 
     [Fact]
-    public void CalculateDefaultsToKilometresIfNoLengthSpecified()
+    public void CalculateDefaultsToKilometresIfNoUnitSpecified()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
-        var controller = new DistanceController(distanceCalculatorService);
-
-        controller.Calculate(new CalculateDistanceRequest());
+        var distance = CalculateDistance(distanceCalculatorService);
 
         mock.Verify(s => s.CalculateDistance(It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DistanceCalculators>(), Lengths.Kilometres));
     }
 
     [Fact]
-    public void CalculateForwardsTheCorrectCalculationMethodAndLengthIfSpecified()
+    public void CalculateForwardsTheCorrectCalculationMethodAndUnitIfSpecified()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
         var controller = new DistanceController(distanceCalculatorService);
         var request = new CalculateDistanceRequest
         {
+            CoordinateA = new DecimalDegreeCoordinate(1, 2),
+            CoordinateB = new DecimalDegreeCoordinate(3, 4),
             CalculationMethod = DistanceCalculators.VincentyInverse,
             UnitOutput = Lengths.Miles
         };
@@ -71,10 +68,12 @@ public class DistanceControllerTests
     public void CalculateForwardsTheCorrectCoordinates()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
+        var distance = CalculateDistance(distanceCalculatorService);
+
         var controller = new DistanceController(distanceCalculatorService);
         var request = new CalculateDistanceRequest
         {
-            CoordinateA = new DecimalDegreeCoordinate(1,2),
+            CoordinateA = new DecimalDegreeCoordinate(1, 2),
             CoordinateB = new DecimalDegreeCoordinate(3, 4)
         };
         
@@ -96,5 +95,16 @@ public class DistanceControllerTests
 
         Assert.NotNull(noCoordinateA);
         Assert.NotNull(noCoordinateB);
+    }
+
+    private static double CalculateDistance(IDistanceCalculatorService distanceCalculatorService)
+    {
+        var controller = new DistanceController(distanceCalculatorService);
+
+        return controller.Calculate(new CalculateDistanceRequest
+        {
+            CoordinateA = new DecimalDegreeCoordinate(1, 2),
+            CoordinateB = new DecimalDegreeCoordinate(3, 4)
+        });
     }
 }
