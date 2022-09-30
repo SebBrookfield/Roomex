@@ -10,7 +10,6 @@ jobs:
     defaults:
       run:
         working-directory: terraform
-    runs-on: ubuntu-latest
     env:
       TF_VAR_AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     steps:
