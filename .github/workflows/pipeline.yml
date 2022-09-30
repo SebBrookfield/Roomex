@@ -32,10 +32,12 @@ jobs:
           dotnet build --configuration Release
 
       - name: Unit tests
-        run: dotnet test ./*.Tests -v quiet --nologo -l:"console;verbosity=normal"
+        run: |
+          dotnet test ./Roomex.Distance.Api.Tests -v quiet --nologo -l:"console;verbosity=normal"
+          dotnet test ./Roomex.Distance.Calculator.Tests -v quiet --nologo -l:"console;verbosity=normal"
 
       - name: Integration tests
-        run: dotnet test ./*.IntegrationTests -v quiet --nologo -l:"console;verbosity=normal"
+        run: dotnet test ./Roomex.Distance.Api.IntegrationTests -v quiet --nologo -l:"console;verbosity=normal"
 
       - name: Publish code
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/roomex
