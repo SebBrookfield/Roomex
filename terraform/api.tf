@@ -7,15 +7,15 @@ resource "azurerm_service_plan" "roomex-api-service-plan" {
 }
 
 resource "azurerm_linux_web_app" "roomex-api" {
-  name                      = "roomex-api"
-  resource_group_name       = azurerm_resource_group.roomex.name
-  location                  = azurerm_service_plan.roomex-api-service-plan.location
-  service_plan_id           = azurerm_service_plan.roomex-api-service-plan.id
-  https_only                = true
-  use_32_bit_worker_process = true
+  name                = "roomex-api"
+  resource_group_name = azurerm_resource_group.roomex.name
+  location            = azurerm_service_plan.roomex-api-service-plan.location
+  service_plan_id     = azurerm_service_plan.roomex-api-service-plan.id
+  https_only          = true
   
   site_config {
     minimum_tls_version = "1.2"
+    always_on           = false
     application_stack {
       dotnet_version = "6.0"
     }
