@@ -32,7 +32,7 @@ public class DistanceControllerTests
     public void CalculateDefaultsToSphericalLawOfCosineIfNoCalculationMethodSpecified()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
-        var distance = CalculateDistance(distanceCalculatorService);
+        CalculateDistance(distanceCalculatorService);
         
         mock.Verify(s => s.CalculateDistance(It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DecimalDegreeCoordinate>(), DistanceCalculators.SphericalLawOfCosine, It.IsAny<Lengths?>()));
     }
@@ -41,7 +41,7 @@ public class DistanceControllerTests
     public void CalculateDefaultsToKilometresIfNoUnitSpecified()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
-        var distance = CalculateDistance(distanceCalculatorService);
+        CalculateDistance(distanceCalculatorService);
 
         mock.Verify(s => s.CalculateDistance(It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DecimalDegreeCoordinate>(), It.IsAny<DistanceCalculators>(), Lengths.Kilometres));
     }
@@ -68,8 +68,6 @@ public class DistanceControllerTests
     public void CalculateForwardsTheCorrectCoordinates()
     {
         var distanceCalculatorService = new MockDistanceCalculatorService().Build(out var mock);
-        var distance = CalculateDistance(distanceCalculatorService);
-
         var controller = new DistanceController(distanceCalculatorService);
         var request = new CalculateDistanceRequest
         {
