@@ -83,12 +83,14 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
+          path: roomex
+
 
       - name: Deploy
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with: 
           app-name: roomex-api
-          package: .net-app
+          package: ./roomex
       
       - name: Logout
         run: az logout
