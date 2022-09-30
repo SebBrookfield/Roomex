@@ -8,14 +8,14 @@ To calculate the distance, send a POST request to /Distance/Calculate with the f
 
 ```
 {
-	"CoordinateA": {
-    "Latitude": 53.297975,
-		"Longitude": -6.372663
-	},
-	"CoordinateB": {
-		"Latitude": 41.385101,
-		"Longitude": -81.440440
-	}
+    "CoordinateA": {
+        "Latitude": 53.297975,
+        Longitude": -6.372663
+    },
+    "CoordinateB": {
+        "Latitude": 41.385101,
+        "Longitude": -81.440440
+    }
 }
 ```
 If you would like to test this in Azure, the service is hosted at
@@ -45,15 +45,15 @@ For example, the below payload can be used to calculate the distance between two
 
 ```
 {
-	"CoordinateA": {
-		"Latitude": 53.297975,
-		"Longitude": -6.372663
-	},
-	"CoordinateB": {
-		"Latitude": 41.385101,
-		"Longitude": -81.440440
-	},
-	"CalculationMethod": 2,
-	"UnitOutput": 1
+    "CoordinateA": {
+        "Latitude": 53.297975,
+        "Longitude": -6.372663
+    },
+    "CoordinateB": {
+        "Latitude": 41.385101,
+        Longitude": -81.440440
+    },
+    "CalculationMethod": 2,
+    "UnitOutput": 1
 }
 ```
