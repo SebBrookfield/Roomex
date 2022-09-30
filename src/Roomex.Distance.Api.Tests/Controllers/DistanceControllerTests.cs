@@ -82,4 +82,19 @@ public class DistanceControllerTests
 
         mock.Verify(s => s.CalculateDistance(request.CoordinateA, request.CoordinateB, It.IsAny<DistanceCalculators>(), It.IsAny<Lengths>()));
     }
+
+    [Fact]
+    public void CalculateThrowsExceptionIfCoordinatesAreNotProvided()
+    {
+        var distanceCalculatorService = new MockDistanceCalculatorService().Build();
+        var controller = new DistanceController(distanceCalculatorService);
+        var requestNoCoordinateA = new CalculateDistanceRequest {CoordinateB = new DecimalDegreeCoordinate(1, 2)};
+        var requestNoCoordinateB = new CalculateDistanceRequest {CoordinateA = new DecimalDegreeCoordinate(1, 2)};
+        
+        var noCoordinateA = Record.Exception(() => controller.Calculate(requestNoCoordinateA));
+        var noCoordinateB = Record.Exception(() => controller.Calculate(requestNoCoordinateB));
+
+        Assert.NotNull(noCoordinateA);
+        Assert.NotNull(noCoordinateB);
+    }
 }

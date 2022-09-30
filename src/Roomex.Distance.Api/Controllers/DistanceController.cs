@@ -19,6 +19,9 @@ namespace Roomex.Distance.Api.Controllers
         [HttpPost(nameof(Calculate))]
         public double Calculate(CalculateDistanceRequest request)
         {
+            if (request.CoordinateA == null || request.CoordinateB == null)
+                throw new ArgumentException("Missing coordinates.");
+
             return _distanceCalculatorService.CalculateDistance(request.CoordinateA, request.CoordinateB,
                 request.CalculationMethod ?? DistanceCalculators.SphericalLawOfCosine, request.UnitOutput ?? Lengths.Kilometres);
         }

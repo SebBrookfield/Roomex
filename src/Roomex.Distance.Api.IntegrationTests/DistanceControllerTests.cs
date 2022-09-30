@@ -61,7 +61,7 @@ namespace Roomex.Distance.Api.IntegrationTests
 
             Assert.Equal("3440.126146861522", distance);
         }
-
+        
         private async Task<string> Calculate(CalculateDistanceRequest request)
         {
             var response = await _client.PostAsync("Distance/Calculate", new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json"));
