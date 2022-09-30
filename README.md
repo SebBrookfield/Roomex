@@ -51,7 +51,7 @@ For example, the below payload can be used to calculate the distance between two
     },
     "CoordinateB": {
         "Latitude": 41.385101,
-        Longitude": -81.440440
+        "Longitude": -81.440440
     },
     "CalculationMethod": 2,
     "UnitOutput": 1
