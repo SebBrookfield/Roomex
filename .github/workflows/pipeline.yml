@@ -30,7 +30,15 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/roomex
+
+      - name: Unit tests
+        run: dotnet test ./Roomex.Distance.Api.Tests -v quiet --nologo -l:"console;verbosity=normal"
+
+      - name: Integration tests
+        run: dotnet test ./Roomex.Distance.Api.IntegrationTests -v quiet --nologo -l:"console;verbosity=normal"
+
+      - name: Publish code
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/roomex
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
