@@ -44,7 +44,7 @@ namespace Roomex.Distance.Api.IntegrationTests
 
             var distance = await Calculate(request);
 
-            Assert.Equal("5551.627484580547", distance);
+            Assert.Equal("5551.492663386977", distance);
         }
 
         [Fact]

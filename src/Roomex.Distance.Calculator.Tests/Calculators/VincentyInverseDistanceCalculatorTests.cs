@@ -10,9 +10,9 @@ public class VincentyInverseDistanceCalculatorTests
     public static IEnumerable<object[]> Distances =>
         new List<object[]>
         {
-            new object[] { CoordinatesFor.Dublin, CoordinatesFor.Usa, 5551627.48d },
-            new object[] { CoordinatesFor.Dublin, CoordinatesFor.France, 781955.45d },
-            new object[] { CoordinatesFor.Usa, CoordinatesFor.France, 6301353.69d }
+            new object[] { CoordinatesFor.Dublin, CoordinatesFor.Usa, 5551492.66d },
+            new object[] { CoordinatesFor.Dublin, CoordinatesFor.France,781955.22d },
+            new object[] { CoordinatesFor.Usa, CoordinatesFor.France, 6301136.43d }
         };
 
     [Theory]

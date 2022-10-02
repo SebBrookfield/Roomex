@@ -10,7 +10,7 @@ internal class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
     public double CalculateDistance(DecimalDegreeCoordinate coordinateA, DecimalDegreeCoordinate coordinateB, IMetreConverter? converter = null)
     {
         const double semiMajorAxis = 6378137.0000d;
-        const double semiMinorAxis = 6356752.3142d;
+        const double semiMinorAxis = 6356752.314245d;
         const double flattening = (semiMajorAxis - semiMinorAxis) / semiMajorAxis;
 
         var longitudeDifference = coordinateA.Longitude.ToRadians() - coordinateB.Longitude.ToRadians();
@@ -29,7 +29,7 @@ internal class VincentyInverseDistanceCalculator : ICoordinateDistanceCalculator
             cosσ = Sin(p) * Sin(q) + Cos(p) * Cos(q) * Cos(λ);
             σ = Atan(sinσ / cosσ);
             sinα = Cos(p) * Cos(q) * Sin(λ) / Sin(σ);
-            cosSquaredα = 1 - Sin(sinα) * Sin(sinα);
+            cosSquaredα = 1 - PowOf2(sinα);
             cos2σm = cosσ - 2 * Sin(p) * Sin(q) / cosSquaredα;
             var c = flattening / 16 * cosSquaredα * (4 + flattening * (4 - 3 * cosSquaredα));
             λtick = λ;
